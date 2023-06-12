@@ -1,13 +1,18 @@
-# Panduan Sebelum Mengerjakan Project Frontend
-1. Setiap Pages terdiri dari components yang di pecah dan di masukkan dalam folder di beri nama sesuai dengan componentnya contoh `(folder component -> buat folder component button -> isi file button (namafile).components.js/jsx beserta file (namafile).styles.css)`
-2. component yang di butuh kan akan di import dan di rangkai di dalam file pages
-3. jika membutuhkan context bisa membuat folder sendiri di folder context dan di beri nama sesuai page nya di ikuti dengan `.context`
-4. penamaan variable dan function di tulis menggunakan format camelCase
-5. Route berada di `App.js`
-6. jangan lupa membuat routing untuk halaman yang akan dituju `contoh "/game"`
-7. untuk pengiriman dan penerimaan data menggunakan `fetch api` dengan alamat sesuai dengan alamat yang telah di buat di backend
-8. design component dan background sebagus mungkin dan bebas menggunakan library external
-9. untuk route `*` harus di taruh di paling akhir untuk menampilkan `WRONGURL`
+# ReactJS project that incorporates a simple game of Rock Paper Scissors, a leaderboard table for ranking players, a CRUD functionality for user profiles, and registration and login features. It also includes a layout consisting of a footer and a navbar for wrapping the entire page and handles data fetching to a server.
+
+**The ReactJS project** is designed to provide an engaging and interactive experience for users. The centerpiece of the project is a game of Rock Paper Scissors, a classic hand game where players choose between three options: rock, paper, or scissors. The game is implemented using React components and allows users to make their selections and see the outcome. The logic behind determining the winner or a tie is handled within the React components.
+
+In addition to the game, the project features a leaderboard table that displays the ranking of players based on their performance in the Rock Paper Scissors game. The leaderboard is dynamically updated as players complete matches, and it provides a visual representation of the top performers.
+
+The project also includes a user profile functionality that allows players to create, update, and delete their profiles. Users can register and log in to the application using secure authentication mechanisms. The **CRUD** (Create, Read, Update, Delete) operations on the profile enable users to customize their information and manage their accounts effectively.
+
+To ensure a consistent and user-friendly experience, the project incorporates a layout that includes a footer and a navbar. The layout is designed to wrap the entire page, providing a cohesive and visually appealing interface. It allows users to navigate between different sections of the application easily and access important features.
+
+Lastly, **the project integrates with a server to handle data fetching and persistence**. This ensures that user information, game results, and leaderboard data are stored securely and can be accessed across multiple sessions. The server communication is implemented using APIs and the appropriate data fetching libraries in React, enabling seamless interaction between the frontend and backend components.
+
+**In summary, this ReactJS project combines a simple game of Rock Paper Scissors with a leaderboard table, user profile CRUD operations, and registration and login features. It incorporates a layout for better user experience and handles data fetching to a server for seamless data management. The project aims to provide an enjoyable and interactive experience for users while maintaining the necessary functionality for user management and data persistence.**
+
+
 
 # Getting Started with Create React App
 
