@@ -1,0 +1,29 @@
+nav{
+font-size: 1.2rem;
+}
+.rs-navbar-default {
+  --rs-navbar-default-text: antiquewhite;
+}
+
+a:hover {
+  --rs-text-link-hover: rgb(238, 227, 146);
+}
+
+a:active{
+  color: rgb(238, 227, 146);
+    --rs-text-link-active: rgb(238, 227, 146);
+  }
+    
+a:focus{
+  --rs-text-link-hover: rgb(238, 227, 146);
+}
+
+.rs-navbar-default {
+  --rs-navbar-default-bg: rgba( 0, 0, 0, 0.5);
+  --rs-navbar-default-hover-text: rgb(238, 227, 146);
+}
+
+
+.rs-navbar-default .rs-navbar-item:hover{
+  --rs-navbar-default-hover-bg: #909090;
+}

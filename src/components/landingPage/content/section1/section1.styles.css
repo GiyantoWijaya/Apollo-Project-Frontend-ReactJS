@@ -1,0 +1,80 @@
+.bg1 {
+  height: 50rem;
+  background-image: url('../../../../../public/img/wallpaperflare.com_wallpaper.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.content-main {
+  display: flex;
+  height: 40rem;
+  align-items: center;
+}
+
+.content {
+    font-family: 'Shadows Into Light', cursive;
+    color: rgba(255, 255, 255, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.h1title {
+  font-size: 6rem;
+  margin-bottom: 75px;
+}
+
+.description {
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Media Query */
+
+@media (max-width: 768px) {
+    .bg1 {
+      height: 70rem;
+    }
+    .imgcarousel {
+      display: none;
+    }
+    .description {
+      margin-bottom: 30px;
+    }
+    .h1title {
+      font-size: 4rem;
+      margin-top: 15rem;
+      margin-bottom: 55px;
+    }
+        .footer {
+          position: absolute;
+          bottom: -42rem;
+        }
+ 
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .bg1 {
+      height: 55rem;
+    }
+  .content {
+    justify-content: center;
+  }  
+  .h1title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .bg1 {
+      height: 50rem;
+    }
+  .content-main {
+      height: 35rem;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  
+}

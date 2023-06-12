@@ -1,0 +1,13 @@
+.vs {
+  font-size: 144px;
+  font-weight: bold;
+  color: #BD0000;
+}
+
+.win {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: antiquewhite;
+  transform: rotate(-30deg);
+  font-size: 36px;
+  text-align: center;
+}

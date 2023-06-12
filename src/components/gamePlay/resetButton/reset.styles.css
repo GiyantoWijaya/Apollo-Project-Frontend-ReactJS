@@ -1,0 +1,14 @@
+.refresh {
+  margin-top: -3rem;
+}
+
+.refresh img {
+  width: 72px;
+  height: 72px;
+  padding: 10px;
+}
+
+.refresh img:hover {
+  background-color: #C4C4C4;
+  border-radius: 30px;
+}

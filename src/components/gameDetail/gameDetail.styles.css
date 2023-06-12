@@ -1,0 +1,19 @@
+
+.titlegamedetail h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+.trophy {
+  color: rgb(255, 179, 80);
+}
+.title{
+  color: rgb(251, 228, 198);
+  text-shadow: 0 0 3px #000;
+    -moz-text-shadow: 0 0 3px #000;
+    -webkit-text-shadow: 0 0 3px #000;
+}
+
+.data-table {
+  margin-top: 50px;
+  margin-left: 30px;
+}

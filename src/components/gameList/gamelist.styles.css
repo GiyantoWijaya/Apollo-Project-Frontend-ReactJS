@@ -1,0 +1,26 @@
+.gameImage {
+  height: auto;
+  background-color: black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.images {
+  height: 250px;
+  width: 300px;
+}
+
+.gamelistPage {
+  height: auto;
+
+  background: url('../../../public/img/1.jpg');
+  background-size: cover;
+}
+
+.container-game {
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 20px;
+}
