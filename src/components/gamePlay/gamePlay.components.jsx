@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import BackButton from './backButton/backButton.components';
-import Player from './player/player.components';
-import Computer from './computer/computer.components';
-import Reset from './resetButton/reset.components';
-import Result from './result/result.component';
-import Cookies from 'js-cookie';
+import BackButton from "./backButton/backButton.components";
+import Player from "./player/player.components";
+import Computer from "./computer/computer.components";
+import Reset from "./resetButton/reset.components";
+import Result from "./result/result.component";
+import Cookies from "js-cookie";
 
-import './gamePlay.styles.css';
+import "./gamePlay.styles.css";
 
 const GamePlay = () => {
   let { idgame } = useParams();
-  const userId = Cookies.get('userId');
+  const userId = Cookies.get("userId");
   const [playerChoose, setPlayerChoose] = useState(null);
   const [compChoose, setCompChoose] = useState(null);
   const [result, setResult] = useState(null);
@@ -21,23 +21,23 @@ const GamePlay = () => {
   useEffect(() => {
     function handleResult() {
       if (playerChoose === compChoose) {
-        return 'Draw!!';
+        return "Draw!!";
       } else if (
-        (playerChoose === 'batu' && compChoose === 'kertas') ||
-        (playerChoose === 'kertas' && compChoose === 'gunting') ||
-        (playerChoose === 'gunting' && compChoose === 'batu')
+        (playerChoose === "batu" && compChoose === "kertas") ||
+        (playerChoose === "kertas" && compChoose === "gunting") ||
+        (playerChoose === "gunting" && compChoose === "batu")
       ) {
         setScore((prevScore) => ({
           ...prevScore,
           computerScore: prevScore.computerScore + 1,
         }));
-        return 'Computer Win';
+        return "Computer Win";
       } else {
         setScore((prevScore) => ({
           ...prevScore,
           playerScore: prevScore.playerScore + 1,
         }));
-        return 'Player Win';
+        return "Player Win";
       }
     }
 
@@ -51,17 +51,20 @@ const GamePlay = () => {
       try {
         const currentTime = new Date();
         const secondsWithinMinute = `${currentTime.getMinutes()} minutes ${currentTime.getSeconds()} seconds`;
-        const response = await fetch(`https://api-apollo.niceblue.my.id/api/gamePlay/${idgame}/${userId}`, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            score: score.playerScore,
-            time: secondsWithinMinute,
-          }),
-        });
+        const response = await fetch(
+          `http://localhost:5001/api/gamePlay/${idgame}/${userId}`,
+          {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              score: score.playerScore,
+              time: secondsWithinMinute,
+            }),
+          }
+        );
 
         const data = await response.json();
         console.log(data);
@@ -74,7 +77,7 @@ const GamePlay = () => {
 
   function handlePlayerChoose(choice) {
     if (playerChoose !== null) {
-      alert('Game Over Please Click Restart Button');
+      alert("Game Over Please Click Restart Button");
       return;
     }
     setPlayerChoose(choice);
@@ -82,7 +85,7 @@ const GamePlay = () => {
   }
 
   function getComputerChoose() {
-    const computerChoices = ['batu', 'kertas', 'gunting'];
+    const computerChoices = ["batu", "kertas", "gunting"];
     return computerChoices[Math.floor(Math.random() * computerChoices.length)];
   }
 
@@ -97,7 +100,10 @@ const GamePlay = () => {
         <BackButton score={score} />
         <div className="container gamecontent">
           <div className="row d-flex justify-content-center text-center">
-            <Player handlePlayerChoose={handlePlayerChoose} playerChoose={playerChoose} />
+            <Player
+              handlePlayerChoose={handlePlayerChoose}
+              playerChoose={playerChoose}
+            />
             <Result result={result} />
             <Computer compChoose={compChoose} />
           </div>

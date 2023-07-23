@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import TableData from './tableData.components.jsx/tableData.components';
+import { useState, useEffect } from "react";
+import TableData from "./tableData.components.jsx/tableData.components";
 
-import './table.styles.css';
+import "./table.styles.css";
 
 const TableGameDetail = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch('https://api-apollo.niceblue.my.id/api/gamePlay', {
-        method: 'GET',
-        mode: 'cors',
+      const response = await fetch("http://localhost:5001/api/gamePlay", {
+        method: "GET",
+        mode: "cors",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
       const result = await response.json();

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Form, Button, Alert } from 'react-bootstrap';
-import './register.style.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { Form, Button, Alert } from "react-bootstrap";
+import "./register.style.css";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [status, setStatus] = useState(true);
 
   let navigate = useNavigate();
@@ -25,20 +25,23 @@ const RegisterForm = () => {
     // let { username, email, password } = e;
 
     try {
-      let result = await axios.post('https://api-apollo.niceblue.my.id/api/authentication/register', {
-        username,
-        email,
-        password,
-      });
+      let result = await axios.post(
+        "http://localhost:5001/api/authentication/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
 
       if (result.status === 201) {
         setStatus(false);
       }
 
-      setUsername('');
-      setEmail('');
-      setPassword('');
-      navigate('/login');
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
@@ -101,10 +104,17 @@ const RegisterForm = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="w-100 my-2 btn btn-lg register-button">
+        <Button
+          variant="primary"
+          type="submit"
+          className="w-100 my-2 btn btn-lg register-button"
+        >
           Register
         </Button>
-        <Button className="w-100 my-2 btn btn-lg btn-danger" onClick={handleCancel}>
+        <Button
+          className="w-100 my-2 btn btn-lg btn-danger"
+          onClick={handleCancel}
+        >
           Cancel
         </Button>
       </Form>

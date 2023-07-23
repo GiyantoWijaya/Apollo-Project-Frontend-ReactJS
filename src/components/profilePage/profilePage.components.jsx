@@ -1,23 +1,25 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
-import './profilePage.styles.css';
+import "./profilePage.styles.css";
 
 function ProfilePage() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [cityData, setCityData] = useState('');
-  const [bioData, setBioData] = useState('');
-  const [socialMedia, setSocialMedia] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [cityData, setCityData] = useState("");
+  const [bioData, setBioData] = useState("");
+  const [socialMedia, setSocialMedia] = useState("");
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userId = Cookies.get('userId');
+    const userId = Cookies.get("userId");
     const getData = async () => {
-      const dataUser = await axios.get(`https://api-apollo.niceblue.my.id/api/userProfile/show/${userId}`);
+      const dataUser = await axios.get(
+        `http://localhost:5001/api/userProfile/show/${userId}`
+      );
       const data = dataUser.data.data.dataProfile;
       const { firstname, lastname, bio, city, social_media_url } = data;
       setFirstName(firstname);
@@ -33,14 +35,17 @@ function ProfilePage() {
     e.preventDefault();
     try {
       const sentData = async () => {
-        const userId = Cookies.get('userId');
-        const result = await axios.put(`https://api-apollo.niceblue.my.id/api/userProfile/update/${userId}`, {
-          firstname: firstName,
-          lastname: lastName,
-          bio: bioData,
-          city: cityData,
-          social_media_url: socialMedia,
-        });
+        const userId = Cookies.get("userId");
+        const result = await axios.put(
+          `http://localhost:5001/api/userProfile/update/${userId}`,
+          {
+            firstname: firstName,
+            lastname: lastName,
+            bio: bioData,
+            city: cityData,
+            social_media_url: socialMedia,
+          }
+        );
         if (result.status === 200) {
           setSuccess(true);
           return;
@@ -53,7 +58,7 @@ function ProfilePage() {
   }
 
   function handleGoBack() {
-    navigate('/home');
+    navigate("/home");
   }
 
   return (
@@ -63,9 +68,17 @@ function ProfilePage() {
           <div className="col-lg-4">
             <h1 className="text-center mt-5 mb-5">User Profile</h1>
             {success === true && (
-              <div className="alert alert-success alert-dismissible fade show" role="alert">
+              <div
+                className="alert alert-success alert-dismissible fade show"
+                role="alert"
+              >
                 <strong>Berhasil</strong> Mengupdate Profile!.
-                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
               </div>
             )}
             <form onSubmit={handleSubmit}>
@@ -131,10 +144,16 @@ function ProfilePage() {
                 />
               </div>
               <div className="text-center">
-                <button type="submit" className="btn btn-primary mx-4 btnsubmit">
+                <button
+                  type="submit"
+                  className="btn btn-primary mx-4 btnsubmit"
+                >
                   Submit
                 </button>
-                <button onClick={handleGoBack} className="btn btn-danger mx-4 btngoback">
+                <button
+                  onClick={handleGoBack}
+                  className="btn btn-danger mx-4 btngoback"
+                >
                   Go Back
                 </button>
               </div>
